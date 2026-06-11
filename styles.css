@@ -28,7 +28,7 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
     margin-top: 2px;
 }
 .player-header {
-    background: linear-gradient(135deg, #1E2530 0%, #87c760 100%);
+    background: linear-gradient(135deg, #1E2530 25%, #87c760 80%);
     border-radius: 16px;
     padding: 28px 32px;
     margin-bottom: 24px;
@@ -43,7 +43,7 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 }
 .player-meta {
     font-size: 20px;
-    color: #8899AA;
+    color: #FFFFFF;
     margin-top: 6px;
 }
 .player-meta span {

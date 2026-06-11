@@ -235,11 +235,22 @@ with c4:
 #Radar chart
 st.markdown('<div class="section-header">🕸️ Attribute Radar</div>', unsafe_allow_html=True)
 radar_cats = ["Goals", "Assists", "Shots", "TacklesWon", "Interceptions", "FoulsCommitted"]
+# all_max = {c: df[c].max() for c in radar_cats if c in df.columns}
+
+# def normalise(col):
+#     mx = all_max.get(col, 1)
+#     return round(_safe_sum(col) / mx * 10, 2) if mx else 0
 all_max = {c: df[c].max() for c in radar_cats if c in df.columns}
 
 def normalise(col):
     mx = all_max.get(col, 1)
-    return round(_safe_sum(col) / mx * 10, 2) if mx else 0
+    if not mx:
+        return 0
+
+    score = (_safe_sum(col) / mx) * 10
+
+    # Cap at 10
+    return round(min(score, 10), 2)
 
 radar_vals = [normalise(c) for c in radar_cats]
 actual_vals = [_safe_sum(c) for c in radar_cats]
